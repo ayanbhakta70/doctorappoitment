@@ -1,0 +1,51 @@
+http://localhost:5000/api/auth/register     // user register (post method)
+{"name": "Ayan","email": "testuser2@gmail.com","password": "test2@12345","role": "admin"}
+
+http://localhost:5000/api/auth/login   // user login  (post method)
+{"name": "Ayan", "email": "testuser2@gmail.com", "password": "test2@12345", "role": "admin"}
+
+http://localhost:5000/api/medicines   //Add Medicine (post method)
+{
+    "name": "Napa650",
+    "genericName": "Paracetamol",
+    "category":"Tablet",
+    "manufacturer":"Beximco",
+    "price": 2,
+    "quantity":100,
+    "expireDate":"2027-12-31"
+}
+
+http://localhost:5000/api/medicines      // get all Medicine (get method)
+
+http://localhost:5000/api/medicines?search="medicine name"    // search medicine (get method)
+
+http://localhost:5000/api/medicines/"medicine id"  // Update medicine  (put method)
+
+http://localhost:5000/api/medicines/"medicine id"   // delete medicine  (delete method)
+
+http://localhost:5000/api/sales   // creating billing process customer   ( Post method)
+
+http://localhost:5000/api/sales   // show all bill   (get method)  * all bill show soldBy name 
+
+http://localhost:5000/api/sales/<sales id>  //get one bill (get method)
+
+// Add Doctor ------------>>
+step-1 : Process Doctor registration  [name,email,password,role:"doctor"], [post method]
+    link : http://localhost:5000/api/auth/register
+step-2 : process Doctor login  [name,email,password,role:"doctor"], [post method]
+    http://localhost:5000/api/auth/login
+seep-3 : Then add Doctor details [specialization, qualification, fee, availableDays,timeSlots]
+     ** must copy login token :
+    link : http://localhost:5000/api/doctors     // post method
+
+http://localhost:5000/api/doctors/doctor id/slots?date=
+ in this link create appointment date and time slots
+
+// Add Patient ------------------------->>
+step-1 : Process Patient registration  [name,email,password,role:"patient"], [post method]
+    link : http://localhost:5000/api/auth/register
+step-2 : process Patient login  [name,email,password,role:"patient"], [post method]
+    link : http://localhost:5000/api/auth/login
+seep-3 : Then add patient details []
+     ** must copy login token :
+    link : http://localhost:5000/api/doctors     // post method
